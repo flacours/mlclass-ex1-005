@@ -8,24 +8,20 @@ m = length(y); % number of training examples
 
 % You need to return the following variables correctly 
 J = 0;
-
 errorsum = 0;
-thetax = sum(X*theta);
-  sumy = -sum(y);
-J=1/(2*m)*(thetax-sumy)^2;
-disp(sprintf('thetax %f sumy %f J %f', thetax, sumy, J));
-%for( i = 1 : m)
+for( i = 1 : m)
 %  disp(sprintf('i=%d', i));
 %  disp(sprintf('theta 1 : %f', theta(1)));
 %  disp(sprintf('theta 2 : %f', theta(2)));
-%disp(sprintf('X(1,%d) : %f', i, X(1,i)));
-%h0 = theta(1) * X(1,i) + theta(2) * X(2,i);
-%disp(sprintf('h0=%f',h0));
-%errorsum += (h0-y(i))^2;
+%disp(sprintf('X(1,%d) : %f', i, X(i,1)));
+h0 = theta(1) * X(i,1) + theta(2) * X(i,2);
+%h0 = theta(1) + theta(2) * X(i,2);
+%  disp(sprintf('h0=%f',h0));
+errorsum += ((h0 - y(i) )^2);
+%  disp(sprintf('errorsum %f', errorsum));
+end
 %disp(sprintf('errorsum %f', errorsum));
-%end
-
-%J=1/(2*m)*errorsum;
+J=1/(2*m)*errorsum;
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost of a particular choice of theta
