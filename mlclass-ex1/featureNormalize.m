@@ -24,9 +24,15 @@ sigma = zeros(1, size(X, 2));
 %               each feature. 
 %
 % Hint: You might find the 'mean' and 'std' functions useful.
-%       
-
-
+fprintf('%f %f\n', X_norm(1,1), X_norm(1,2));
+m = length(mu);
+for( i = 1 : m)
+mu(i) = mean(X(:,i));
+% substract mean
+X_norm(:,i) = X_norm(:,i) .- mu(i);
+% compute std
+X_norm(:,i) = X_norm(:,i) ./ std(X_norm(:,i));
+end
 
 
 
