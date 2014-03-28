@@ -31,7 +31,10 @@ mu(i) = mean(X(:,i));
 % substract mean
 X_norm(:,i) = X_norm(:,i) .- mu(i);
 % compute std
-X_norm(:,i) = X_norm(:,i) ./ std(X_norm(:,i));
+s = std(X_norm(:,i));
+if(s > 1e-6 || s < -1e-6)
+X_norm(:,i) = X_norm(:,i) ./ s;
+endif
 end
 
 

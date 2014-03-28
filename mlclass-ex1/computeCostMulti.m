@@ -13,9 +13,17 @@ J = 0;
 % Instructions: Compute the cost of a particular choice of theta
 %               You should set J to the cost.
 nbfeatures = size(X,2);
-disp(X);
-disp(nbfeatures);
+%disp(X);
+%disp(nbfeatures);
 
+% You need to return the following variables correctly 
+J = 0;
+errorsum = 0;
+v = X * theta - y;
+J = 1/(2*m) * (v' * v);
+%disp(J);
+
+%fprintf('J=%f\n', J);
 
 
 

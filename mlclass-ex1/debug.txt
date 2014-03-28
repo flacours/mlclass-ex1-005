@@ -1,0 +1,13 @@
+if(i == 0)
+disp('X(i)'); 
+  disp(X(i,:));
+  disp('theta:');
+  disp(theta);
+disp('h0:');
+  disp(h0);
+disp('diff:');
+  disp(diff);
+disp('y:');
+disp(y(i));
+
+endif;

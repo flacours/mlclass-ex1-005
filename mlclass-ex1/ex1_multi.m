@@ -86,8 +86,13 @@ fprintf('Running gradient descent ...\n');
 alpha = 0.01;
 num_iters = 400;
 
+
+
 % Init Theta and Run Gradient Descent 
 theta = zeros(3, 1);
+
+computeCost(X, y, theta);
+
 [theta, J_history] = gradientDescentMulti(X, y, theta, alpha, num_iters);
 
 % Plot the convergence graph
@@ -105,9 +110,18 @@ fprintf('\n');
 % ====================== YOUR CODE HERE ======================
 % Recall that the first column of X is all-ones. Thus, it does
 % not need to be normalized.
-price = 0; % You should change this
+XEst = [1650 3];
+disp 'XEst';
+disp XEst;
+pause;
+[XEst2 mu sigma]= featureNormalize(XEst);
+disp 'XEst';
+disp XEst;
+disp XEst2;
 
+price = [1 XEst2] * theta; % You should change this
 
+pause;
 % ============================================================
 
 fprintf(['Predicted price of a 1650 sq-ft, 3 br house ' ...
@@ -150,7 +164,9 @@ fprintf('\n');
 
 % Estimate the price of a 1650 sq-ft, 3 br house
 % ====================== YOUR CODE HERE ======================
-price = 0; % You should change this
+XEst = [1 1650 3];
+
+price = XEst * theta; % You should change this
 
 
 % ============================================================
